@@ -11,7 +11,8 @@
 @implementation ViewController
 
 -(void)configure {
-    
+    [self addSectionWithTitle:@"General"];    
+    [self addSwitch:@"Toggle switch" enabled:YES];
 }
 
 @end

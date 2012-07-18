@@ -21,6 +21,7 @@
 		4C573CC815B7429800790F60 /* IGFormTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C573CBF15B7429800790F60 /* IGFormTextView.m */; };
 		4C573CC915B7429800790F60 /* IGFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C573CC115B7429800790F60 /* IGFormViewController.m */; };
 		4C573CCA15B7429800790F60 /* IGHouseAdView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C573CC315B7429800790F60 /* IGHouseAdView.m */; };
+		4C573CCD15B7497500790F60 /* IGFormSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C573CCC15B7497500790F60 /* IGFormSwitch.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,8 @@
 		4C573CC115B7429800790F60 /* IGFormViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IGFormViewController.m; path = IGFormViewController/IGFormViewController.m; sourceTree = "<group>"; };
 		4C573CC215B7429800790F60 /* IGHouseAdView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IGHouseAdView.h; path = IGFormViewController/IGHouseAdView.h; sourceTree = "<group>"; };
 		4C573CC315B7429800790F60 /* IGHouseAdView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IGHouseAdView.m; path = IGFormViewController/IGHouseAdView.m; sourceTree = "<group>"; };
+		4C573CCB15B7497500790F60 /* IGFormSwitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IGFormSwitch.h; path = IGFormViewController/IGFormSwitch.h; sourceTree = "<group>"; };
+		4C573CCC15B7497500790F60 /* IGFormSwitch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IGFormSwitch.m; path = IGFormViewController/IGFormSwitch.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +133,8 @@
 				4C573CBD15B7429800790F60 /* IGFormTextField.m */,
 				4C573CBE15B7429800790F60 /* IGFormTextView.h */,
 				4C573CBF15B7429800790F60 /* IGFormTextView.m */,
+				4C573CCB15B7497500790F60 /* IGFormSwitch.h */,
+				4C573CCC15B7497500790F60 /* IGFormSwitch.m */,
 				4C573CC015B7429800790F60 /* IGFormViewController.h */,
 				4C573CC115B7429800790F60 /* IGFormViewController.m */,
 				4C573CC215B7429800790F60 /* IGHouseAdView.h */,
@@ -209,6 +214,7 @@
 				4C573CC815B7429800790F60 /* IGFormTextView.m in Sources */,
 				4C573CC915B7429800790F60 /* IGFormViewController.m in Sources */,
 				4C573CCA15B7429800790F60 /* IGHouseAdView.m in Sources */,
+				4C573CCD15B7497500790F60 /* IGFormSwitch.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

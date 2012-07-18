@@ -44,4 +44,7 @@
 // Adds a radio option (a row with a checkbox to the right). You should call this multiple times with the same category for each set of options.
 -(void)addRadioOption:(NSString *)category title:(NSString *)title;
 
+// Adds a toggle switch and sets the default value
+-(void)addSwitch:(NSString *)title enabled:(BOOL)enabled;
+
 @end

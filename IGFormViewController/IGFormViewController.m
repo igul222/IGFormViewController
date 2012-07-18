@@ -13,6 +13,7 @@
 #import "IGFormTextField.h"
 #import "IGFormTextView.h"
 #import "IGFormRadioOption.h"
+#import "IGFormSwitch.h"
 
 @interface IGFormViewController ()
 
@@ -185,6 +186,12 @@
 	[elements addObject:radioOption];
 }
 
+-(void)addSwitch:(NSString *)title enabled:(BOOL)enabled {
+    [self addDefaultSectionIfNeeded];
+    
+    IGFormSwitch *formSwitch = [[IGFormSwitch alloc] initWithTitle:title enabled:enabled];
+    [elements addObject:formSwitch];
+}
 
 #pragma mark -
 #pragma mark Custom methods
@@ -234,7 +241,11 @@
 			
 			NSString *value = (textView.textView.text ? textView.textView.text : @""); // replace nil with @""
 			[formData setObject:value forKey:textView.title];
-		}
+		} else if([element isKindOfClass:[IGFormSwitch class]]) {
+            IGFormSwitch *formSwitch = (IGFormSwitch *)element;
+            
+            [formData setObject:[NSNumber numberWithBool:formSwitch.switchControl.enabled] forKey:formSwitch.title];
+        }
 	}
 	
 	NSDictionary *immFormData = [formData copy];
@@ -371,7 +382,16 @@
 		textView.textView.frame = CGRectMake(0, 0, 300, 140);
 		[cell.contentView addSubview:textView.textView];
 		
-	}
+	} else if([e isKindOfClass:[IGFormSwitch class]]) {
+        
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        
+        IGFormSwitch *formSwitch = (IGFormSwitch *)e;
+        
+        cell.textLabel.text = formSwitch.title;
+        cell.accessoryView = formSwitch.switchControl;
+        
+    }
     
     return cell;
 }
