@@ -9,5 +9,14 @@
 #import "IGFormButton.h"
 
 @implementation IGFormButton
+@synthesize action;
+
+-(id)initWithTitle:(NSString *)aTitle action:(void(^)(void))anAction {
+    self = [super initWithTitle:aTitle];
+    if(self) {
+        self.action = anAction;
+    }
+    return self;
+}
 
 @end

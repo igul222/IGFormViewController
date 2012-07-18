@@ -26,9 +26,6 @@
 // Subclasses should override this method to save the given data. You can assume that the data is valid according to validateData:.
 -(void)saveData:(NSDictionary *)formData;
 
-// Adds a default, untitled, section to the form if none exists already
--(void)addDefaultSectionIfNeeded;
-
 // Creates a new section in the form with the given title
 -(void)addSectionWithTitle:(NSString *)title;
 
@@ -46,5 +43,8 @@
 
 // Adds a toggle switch and sets the default value
 -(void)addSwitch:(NSString *)title enabled:(BOOL)enabled;
+
+// Adds a button that executes the given block when pressed
+-(void)addButton:(NSString *)title action:(void(^)(void))action;
 
 @end

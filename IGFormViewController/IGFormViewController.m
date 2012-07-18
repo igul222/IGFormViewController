@@ -14,6 +14,7 @@
 #import "IGFormTextView.h"
 #import "IGFormRadioOption.h"
 #import "IGFormSwitch.h"
+#import "IGFormButton.h"
 
 @interface IGFormViewController ()
 
@@ -67,7 +68,10 @@
 	[super viewDidAppear:animated];
 	    
     [self.navigationController setToolbarHidden:YES animated:YES];
-
+    if([self.tableView indexPathForSelectedRow])
+        [self.tableView deselectRowAtIndexPath:self.tableView.indexPathForSelectedRow
+                                      animated:YES];
+    
 	if([elements count] >= 2) {
 		NSObject *element = [elements objectAtIndex:1];
 	
@@ -191,6 +195,14 @@
     
     IGFormSwitch *formSwitch = [[IGFormSwitch alloc] initWithTitle:title enabled:enabled];
     [elements addObject:formSwitch];
+}
+
+-(void)addButton:(NSString *)title action:(void (^)(void))action {
+    [self addDefaultSectionIfNeeded];
+    
+    IGFormButton *button = [[IGFormButton alloc] initWithTitle:title 
+                                                        action:action];
+    [elements addObject:button];
 }
 
 #pragma mark -
@@ -391,6 +403,11 @@
         cell.textLabel.text = formSwitch.title;
         cell.accessoryView = formSwitch.switchControl;
         
+    } else if([e isKindOfClass:[IGFormButton class]]) {
+        
+        cell.selectionStyle = UITableViewCellSelectionStyleBlue;
+        cell.textLabel.text = ((IGFormButton *)e).title;
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
     
     return cell;
@@ -426,7 +443,10 @@
 		[self.tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
 		[self.tableView deselectRowAtIndexPath:indexPath animated:YES];
 		
-	}
+	} else if([e isKindOfClass:[IGFormButton class]]) {
+        // execute the form button action
+        (((IGFormButton *)e).action)();
+    }
 }
 
 
