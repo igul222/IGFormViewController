@@ -250,7 +250,8 @@
 	if(popoverControllerClass && popoverNavigationController) {
 		[[popoverControllerClass performSelector:@selector(currentPopoverController)] dismissPopoverAnimated:YES];
 	} else {
-		[self.navigationController popViewControllerAnimated:YES];
+        if(![self.navigationController popViewControllerAnimated:YES])
+            [self dismissModalViewControllerAnimated:YES];
 	}
 }
 
