@@ -3,7 +3,7 @@
 //  Example
 //
 //  Created by Ishaan Gulrajani on 7/18/12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Copyright (c) 2012 Ishaan Gulrajani. All rights reserved.
 //
 
 #import "AppDelegate.h"
@@ -19,9 +19,15 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-    self.viewController = [[ViewController alloc] initWithNibName:@"ViewController" bundle:nil];
-    self.window.rootViewController = self.viewController;
+    self.viewController = [[UINavigationController alloc] initWithRootViewController:[[ViewController alloc] initWithDefaults]];
+    
+    self.window.rootViewController = [[UIViewController alloc] init];
     [self.window makeKeyAndVisible];
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.window.rootViewController presentModalViewController:self.viewController animated:YES];
+    });
+    
     return YES;
 }
 

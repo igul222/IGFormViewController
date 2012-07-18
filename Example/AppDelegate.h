@@ -3,7 +3,7 @@
 //  Example
 //
 //  Created by Ishaan Gulrajani on 7/18/12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Copyright (c) 2012 Ishaan Gulrajani. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
@@ -14,6 +14,6 @@
 
 @property (strong, nonatomic) UIWindow *window;
 
-@property (strong, nonatomic) ViewController *viewController;
+@property (strong, nonatomic) UINavigationController *viewController;
 
 @end
