@@ -49,6 +49,8 @@
 	[self configure]; // let the subclass set up form data
 	
 	self.tableView.showsVerticalScrollIndicator = YES;
+    self.clearsSelectionOnViewWillAppear = YES;
+    
 	// if this is taller than possible (e.g. landscape with keyboard), the popover will do its own scrolling, which is badly broken
 	NSInteger minHeight = ([self tableViewHeight]<282 ? [self tableViewHeight] : 282);
 	
@@ -68,9 +70,6 @@
 	[super viewDidAppear:animated];
 	    
     [self.navigationController setToolbarHidden:YES animated:YES];
-    if([self.tableView indexPathForSelectedRow])
-        [self.tableView deselectRowAtIndexPath:self.tableView.indexPathForSelectedRow
-                                      animated:YES];
     
 	if([elements count] >= 2) {
 		NSObject *element = [elements objectAtIndex:1];
