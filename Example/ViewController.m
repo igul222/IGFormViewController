@@ -11,7 +11,7 @@
 @implementation ViewController
 
 -(void)configure {
-    [self addSectionWithTitle:@"General"];    
+    [self addSectionWithTitle:@"General" footer:@"Footer text."];
     [self addSwitch:@"Toggle switch" enabled:YES];
     [self addButton:@"Do something" action:^{
        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Hello!" 

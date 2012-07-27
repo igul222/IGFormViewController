@@ -156,6 +156,12 @@
 	[elements addObject:section];
 }
 
+-(void)addSectionWithTitle:(NSString *)aTitle footer:(NSString *)footer {
+	IGFormSection *section = [[IGFormSection alloc] initWithTitle:aTitle];
+    section.footer = footer;
+	[elements addObject:section];
+}
+
 #pragma mark -
 #pragma mark Adding text inputs
 
@@ -336,6 +342,21 @@
 			if(section == currentSection)
 				return [(IGFormSection *)element title];
 
+		}
+	}
+	
+	return nil;
+}
+
+-(NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section {
+	NSInteger currentSection = -1;
+	for(NSObject *element in elements) {
+		if([element isKindOfClass:[IGFormSection class]]) {
+			currentSection++;
+			
+			if(section == currentSection)
+				return [(IGFormSection *)element footer];
+            
 		}
 	}
 	
