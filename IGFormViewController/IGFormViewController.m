@@ -56,10 +56,17 @@
 	
     self.contentSizeForViewInPopover = CGSizeMake(320, minHeight);		
 		
-	UIBarButtonItem *saveButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave 
-																				target:self 
-																				action:@selector(saveButtonPressed)];
-	self.navigationItem.rightBarButtonItem = saveButton;
+    if([self.navigationController.viewControllers objectAtIndex:0]==self) {
+        UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone
+                                                                                    target:self
+                                                                                    action:@selector(saveButtonPressed)];
+        self.navigationItem.rightBarButtonItem = doneButton;
+    } else {
+        UIBarButtonItem *saveButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave
+                                                                                    target:self
+                                                                                    action:@selector(saveButtonPressed)];
+        self.navigationItem.rightBarButtonItem = saveButton;
+    }
 }
 
 -(void)viewWillAppear:(BOOL)animated {
