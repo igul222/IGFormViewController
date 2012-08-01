@@ -13,6 +13,7 @@
 -(void)configure {
     [self addSectionWithTitle:@"General" footer:@"Footer text."];
     [self addSwitch:@"Toggle switch" enabled:YES];
+    [self addButton:@"This does nothing" type:IGFormButtonTypeDisclosure action:nil];
     [self addButton:@"Do something" action:^{
        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Hello!" 
                                                        message:@"You pressed a button."
